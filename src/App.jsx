@@ -1,12 +1,14 @@
 import './App.css'
-import gsap, { Linear } from 'gsap'
-import { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { useEffect, useRef, useState } from 'react'
 import OperationManual from './components/OperationManual'
 import YamaguchiImage from './components/YamaguchiImage'
 import AppInterface from './components/AppInterface'
 import ContactingAssistant from './components/ContactingAssistant'
 
 function App() {
+
+  const [yamaguchiVisible, setYamaguchiVisible] = useState(false);
 
   const blackHole = useRef();
   const yamaguchi = useRef();
@@ -16,6 +18,7 @@ function App() {
     gsap.fromTo(yamaguchi.current, {
       translateY: 756,
     }, {
+      delay: 0.5,
       translateY: 0,
       duration: 3
     });
@@ -26,8 +29,34 @@ function App() {
       scale: 1,
       duration: 1
     })
-    
-  })
+
+    setTimeout(() => {
+      gsap.to(blackHole.current, {
+        scale: 0.6,
+        duration: 3
+      })
+
+      setYamaguchiVisible(true);
+    }, 1300)
+
+  }, [])
+
+  useEffect(() => {
+
+    if(yamaguchiVisible){
+
+      setTimeout(() => {
+        gsap.to(yamaguchi.current,{
+          translateY: 5,
+          duration: 1,
+          repeat: -1,
+          yoyo: true
+        });
+      },2500)
+
+    }
+
+  }, [yamaguchiVisible])
 
   return (
     <>
@@ -35,7 +64,7 @@ function App() {
         <OperationManual/>
         <YamaguchiImage blackHole={blackHole} yamaguchi={yamaguchi}/>
         <AppInterface/> 
-        <ContactingAssistant/>       
+        <ContactingAssistant/>  
       </main>
     </>
   )

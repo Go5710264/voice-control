@@ -1,7 +1,13 @@
+* {
+  background-color: #181818;
+  color: #FFF;
+}
+
 @font-face {
   font-family: 'Montserrat';
   src: url('./fonts/Montserrat-VariableFont_wght.ttf');
 }
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -9,7 +15,6 @@
   padding-left: 17px;
   padding-top: 17px;
   padding-right: 13px;
-  /* padding: 17px 13px 17px; */
 
   font-family: 'Montserrat', sans-serif;
 }
@@ -20,9 +25,11 @@ body{
 
 
 .main-container{
-  /* background-image: url('./assets/vector.png'); */
-  /* background-color: #181818; */
-  background-color: #fff;
+  background-color: #181818;
+}
+
+.wrapper-instruction{
+  grid-area: a;
 }
 
 .instruction-title{
@@ -33,9 +40,14 @@ body{
 }
 
 .text-instruction{
-  margin-bottom: 0;
+  padding-top: 33px;
   font-size: 16px;
   line-height: 27px;
+  margin: 0;
+}
+
+.additionally{
+  padding-top: 16px;
 }
 
 .wrapper-yamaguchi{
@@ -46,17 +58,23 @@ body{
 
 .yamaguchi-image{
   position: absolute;
+  background: none;
   z-index: 2;
+}
+
+.wrapper-black-hole{
+  position: relative;
+  grid-area: b;
 }
 
 .black-hole{
   position: absolute;
-  bottom: -20px;
+  bottom: -35px;
 
-  width: 200px;
+  width: 250px;
   height: 61px;
 
-  margin-left: 45px;
+  margin-left: 22px;
 
   background-color: #000;
   border-radius: 50%;
@@ -67,11 +85,20 @@ body{
 .wrapper-app-image{
   margin-top: 45px;
   height: 425px;
+
+  margin: 0;
+  padding-top: 45px;
+
+  grid-area: c;
 }
 
 .app-image{
   position: absolute;
   left: -27px;
+}
+
+.phrase{
+  grid-area: d;
 }
 
 .word{
@@ -93,4 +120,87 @@ body{
 .third{
   font-size: 50px;
   line-height: 45px;
+}
+
+@media(min-width: 1000px){
+  *{
+    background-image: url('./assets/vector.png');
+  }
+
+  #root {
+    padding: 0;
+    max-width: 1920px;
+  }
+
+  .main-container{
+    display: grid;
+    grid-template-areas: 
+      "a b c"
+      "a b c"
+      "d b c";
+      
+    grid-template-columns: 776px 320px 700px;
+  }
+
+  .wrapper-instruction{
+    width: 586px;
+    padding-top: 72px;
+    padding-left: 99px;
+  }
+
+  .wrapper-app-image{
+    position: relative;
+    height: auto;
+  }
+
+  .instruction-title{
+    width: 400px;
+
+    font-size: 56px;
+    line-height: 50px;
+    line-height: 70px;
+  }
+
+  .text-instruction{
+    font-size: 22px;
+    line-height: 37.4px
+  }
+
+  .additionally{
+    padding-top: 20px;
+    width: 500px;
+  }
+
+  .phrase{
+    width: 500px;
+
+    padding-top: 40px;
+    padding-left: 99px;
+  }
+
+  .first{
+    display: block;
+    padding-bottom: 15px ;
+  }
+
+  .second{
+    display: inline;
+    margin-top: 0;
+    padding-left: 53px ;
+  }
+
+  .third{
+    font-size: 61.5px;
+    line-height: 55px;
+  }
+
+  .black-hole{
+    bottom: 0px;
+    left: -10px;
+    background-image: none;
+  }
+
+  .app-image{
+    top: -15px
+  }
 }
