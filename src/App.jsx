@@ -18,21 +18,22 @@ function App() {
     gsap.fromTo(yamaguchi.current, {
       translateY: 756,
     }, {
-      delay: 0.5,
+      delay: 0.6,
       translateY: 0,
-      duration: 3
+      duration: 3,
     });
 
     gsap.fromTo(blackHole.current, {
-      scale: 0.2
+      scale: 0.1
     },{
-      scale: 1,
+      scaleX: 1,
+      scaleY: 0.65,
       duration: 1
     })
 
     setTimeout(() => {
       gsap.to(blackHole.current, {
-        scale: 0.6,
+        scaleX: 0.6,
         duration: 3
       })
 

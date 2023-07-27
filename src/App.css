@@ -54,6 +54,9 @@ body{
   position: relative;
   height: 757px;
   overflow: hidden;
+
+  border-bottom-left-radius: 150px 22px ;
+  border-bottom-right-radius: 150px 23px ;
 }
 
 .yamaguchi-image{
@@ -64,15 +67,22 @@ body{
 
 .wrapper-black-hole{
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
   grid-area: b;
 }
 
 .black-hole{
   position: absolute;
-  bottom: -35px;
+
+  left: -2px;
+  bottom: -8px;
 
   width: 250px;
-  height: 61px;
+  height: 45px;
 
   margin-left: 22px;
 
@@ -94,7 +104,7 @@ body{
 
 .app-image{
   position: absolute;
-  left: -27px;
+  left: -35px;
 }
 
 .phrase{
@@ -125,6 +135,7 @@ body{
 @media(min-width: 1000px){
   *{
     background-image: url('./assets/vector.png');
+    background-position: center;
   }
 
   #root {
@@ -146,6 +157,12 @@ body{
     width: 586px;
     padding-top: 72px;
     padding-left: 99px;
+  }
+
+  .wrapper-yamaguchi{
+
+    border-bottom-left-radius: 150px 15px ;
+    border-bottom-right-radius: 150px 50px ;
   }
 
   .wrapper-app-image{
@@ -195,7 +212,7 @@ body{
   }
 
   .black-hole{
-    bottom: 0px;
+    bottom: 4px;
     left: -10px;
     background-image: none;
   }
